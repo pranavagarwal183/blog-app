@@ -6,8 +6,8 @@ compatibility_date = "2024-09-13"
 compatibility_flags = [ "nodejs_compat" ]
 
 [vars]
-DATABASE_URL
-JWT_SECRET
+DATABASE_URL="	prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZWYzZGVlZDYtYjdjMi00YzQ5LTg1MGEtYjNmNzBlNmY2NWYxIiwidGVuYW50X2lkIjoiOWE4ZDc0YzQ5YTMwODk1ZGE1OWE5ZTA0YmRjYTBiYjMzZWU4ZTY3MmYzOWE0OGVjOWU0MjE5ODdmY2JmYjZiMyIsImludGVybmFsX3NlY3JldCI6IjJmNDdlMzc5LWUyZmMtNDNkMC1iMDBjLWZhZGQ4ZjE3ODAzNCJ9.4fgcyE7WExJkP7-KnfL6ebz1y3TzRz62nUF9whj_qRc"
+JWT_SECRET="mediumblogapp"
 # MY_VAR = "my-variable"
 
 # [[kv_namespaces]]

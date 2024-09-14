@@ -29,17 +29,12 @@ userRouter.post('/signup',async (c) => {
     try {
       const user=await prisma.user.create({
         data:{
-          email: body.email,
+          username: body.username,
           password: body.password,
+          name: body.name
         },
       });
-  
-      if (!c.env.JWT_SECRET) {
-        console.error('JWT_SECRET is not defined');
-        c.status(500);
-        return c.json({ error: 'Server error: JWT secret is missing' });
-      }
-  
+
       const token=await sign({id: user.id},c.env.JWT_SECRET)
       return c.text(token);
     } catch (error) {
@@ -50,7 +45,7 @@ userRouter.post('/signup',async (c) => {
     }
   })
   
-userRouter.post('/api/v1/signin',async (c) => {
+userRouter.post('/signin',async (c) => {
     const prisma = new PrismaClient({
           datasourceUrl: c.env?.DATABASE_URL	,
       }).$extends(withAccelerate());
@@ -59,7 +54,7 @@ userRouter.post('/api/v1/signin',async (c) => {
       try {
       const user = await prisma.user.findUnique({
         where: {
-          email: body.email,
+          username: body.username,
           password: body.password
         }
       });
