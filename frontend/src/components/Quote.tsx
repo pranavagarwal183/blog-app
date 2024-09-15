@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { ClipLoader } from 'react-spinners'; // Import a spinner from react-spinners
 
 export const Quote = () => {
