@@ -9,8 +9,8 @@ export const Quote = () => {
     useEffect(() => {
         const fetchQuote = async () => {
             try {
-                const response = await axios.get('https://api.quotable.io/random');
-                setQuote(response.data.content);
+                const response = await axios.get('https://api.api-ninjas.com/v1/quotes?category=happiness');
+                setQuote(response.data.quote);
                 setAuthor(response.data.author);
                 // If the API doesn't provide a designation, you can set it manually
                 setDesignation('Author'); 
