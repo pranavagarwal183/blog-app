@@ -1,6 +1,7 @@
 import { Blog } from "../hooks"
 import { Appbar } from "./Appbar"
 import { Avatar } from "./BlogCard"
+import { Quote } from "./Quote"
 
 export const FullBlog = ({ blog }: {blog: Blog | undefined}) => {
     if (!blog) {
@@ -14,9 +15,7 @@ export const FullBlog = ({ blog }: {blog: Blog | undefined}) => {
                     <div className="text-5xl font-extrabold">
                         {blog.title}
                     </div>
-                    <div className="pt-4">
-                        {blog.content}
-                    </div>
+                    <div className="pt-4" dangerouslySetInnerHTML={{ __html: blog.content }}/>
                 </div>
                 <div className="col-span-4">
                     <div className="text-slate-600 text-lg">
@@ -31,7 +30,7 @@ export const FullBlog = ({ blog }: {blog: Blog | undefined}) => {
                                 {blog.author.name || "Anonymous"}
                             </div>
                             <div className="pt-2 text-slate-500">
-                                Random catch phrase about the author's ability to grab the user's attention
+                                
                             </div>
                         </div>
                     </div>  
