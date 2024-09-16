@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Import styles for react-quill
 
-function TextEditor({ onChange }) {
-    const [editorContent, setEditorContent] = useState("");
+interface TextEditorProps {
+    onChange: (event: { target: { value: string } }) => void;
+}
 
-    const handleEditorChange = (content) => {
+function TextEditor({ onChange }: TextEditorProps) {
+    const [editorContent, setEditorContent] = useState<string>("");
+
+    const handleEditorChange = (content: string) => {
         setEditorContent(content);
         onChange({ target: { value: content } });
     };
@@ -41,21 +45,21 @@ TextEditor.modules = {
             bold: {
                 key: 'B',
                 shortKey: true, // ctrl/cmd + B
-                handler: function(range, context) {
+                handler: function(this: any, context: any) {
                     this.quill.format('bold', !context.format.bold);
                 }
             },
             italic: {
                 key: 'I',
                 shortKey: true, // ctrl/cmd + I
-                handler: function(range, context) {
+                handler: function(this: any, context: any) {
                     this.quill.format('italic', !context.format.italic);
                 }
             },
             underline: {
                 key: 'U',
                 shortKey: true, // ctrl/cmd + U
-                handler: function(range, context) {
+                handler: function(this: any, context: any) {
                     this.quill.format('underline', !context.format.underline);
                 }
             }
